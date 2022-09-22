@@ -1,0 +1,27 @@
+{% extends 'my_app/base.html' %}
+<!--  -->
+{% load crispy_forms_tags %}
+
+<!--  -->
+<!--  -->
+
+{% block container %}
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <form method="POST">
+        {% csrf_token %}
+        <div>
+          <h3>Login form</h3>
+        </div>
+        {{ form | crispy }}
+
+        <button class="btn btn-sm btn-outline-info" type="submit">Login</button>
+        <a href="{% url 'home_page' %}" class="btn btn-sm btn-outline-secondary"
+          >Go Home</a
+        >
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock container %}

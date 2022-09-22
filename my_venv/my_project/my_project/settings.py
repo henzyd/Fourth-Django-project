@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'my_app.apps.MyAppConfig',
+    'crispy_forms',  ##### NOTE this is important
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -101,6 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4' ###### NOTE this a important
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
@@ -117,6 +119,7 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+LOGIN_REDIRECT_URL = 'home_page'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

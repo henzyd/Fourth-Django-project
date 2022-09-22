@@ -1,0 +1,15 @@
+{% extends 'my_app/base.html' %}
+<!--  -->
+{% load crispy_forms_tags %}
+
+<!--  -->
+<!--  -->
+{% block container %}
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <button><a href="{% url 'login_page' %}">logout</a></button>
+    </div>
+  </div>
+</div>
+{% endblock container %}

@@ -1,0 +1,34 @@
+{% extends 'my_app/base.html' %}
+<!--  -->
+<!--  -->
+
+{% block container %}
+<div class="container col">
+  <div class="row">
+    <div class="col-6">
+      {% if messages %}
+      <!--  -->
+      {% for message in messages %}
+      <div
+        style="background-color: blue; border-radius: 20px"
+        class="col-4 m-auto"
+      >
+        <div class="p-4">{{ message }}</div>
+      </div>
+      {% endfor %}
+      <!--  -->
+      {% endif %}
+      <!--  -->
+      <!--  -->
+      <div class="name">
+        <h1>{{ posts.user_title }}</h1>
+        <p>{{ posts.user_date_created }}</p>
+        <p>{{ posts.user_owner.username }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock container %}
+
+<!--  -->
+<!--  -->

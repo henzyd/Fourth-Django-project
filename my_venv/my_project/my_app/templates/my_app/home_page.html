@@ -1,0 +1,47 @@
+{% extends 'my_app/base.html' %}
+<!--  -->
+<!--  -->
+
+{% block container %}
+<div class="container col">
+  <div class="row">
+    <div class="col-6">
+      {% if messages %}
+      <!--  -->
+      {% for message in messages %}
+      <div
+        style="background-color: blue; border-radius: 20px"
+        class="col-4 m-auto"
+      >
+        <div class="p-4">{{ message }}</div>
+      </div>
+      {% endfor %}
+      <!--  -->
+      {% endif %}
+      <!--  -->
+      <!--  -->
+      {% for post in posts %}
+      <div class="name">
+        <h1>{{ post.user_title }}</h1>
+        <p>{{ post.user_date_created }}</p>
+        <p>{{ post.user_owner.username }}</p>
+        <a href="{% url 'details_page' post.id %}" class="btn bg-danger"
+          >Read More</a
+        >
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock container %}
+
+<!--  -->
+<!--  -->
+
+{% block last_post %}
+<div class="col">
+  <h1>{{ last_post.user_title }}</h1>
+  <p>{{ last_post.user_date_created }}</p>
+  <p>{{ last_post.user_owner.username }}</p>
+</div>
+{% endblock last_post %}
