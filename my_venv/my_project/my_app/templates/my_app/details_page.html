@@ -22,8 +22,25 @@
       <!--  -->
       <div class="name">
         <h1>{{ posts.user_title }}</h1>
+        <p>{{ posts.user_body }}</p>
         <p>{{ posts.user_date_created }}</p>
         <p>{{ posts.user_owner.username }}</p>
+        {% if user == post.owner %}
+        <a
+          class="btn btn-sm btn-outline-info"
+          href="{% url 'update_post_page' post.id %}"
+          >Update</a
+        >
+        <a
+          class="btn btn-sm btn-danger"
+          href="{% url 'delete_post_page' post.id %}"
+          >Delete</a
+        >
+        {% else %}
+        <a class="btn btn-sm btn-outline-info" href="{% url 'home_page' %}"
+          >Home</a
+        >
+        {% endif%}
       </div>
     </div>
   </div>

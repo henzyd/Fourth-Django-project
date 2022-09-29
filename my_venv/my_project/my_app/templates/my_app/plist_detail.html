@@ -1,0 +1,26 @@
+{% extends 'my_app/base.html' %}
+<!--  -->
+{% load crispy_forms_tags %}
+
+<!--  -->
+<!--  -->
+{% block container %}
+<div class="name">
+  <h1>{{ post.user_title }}</h1>
+  <p>{{ post.user_body }}</p>
+  <p>{{ post.user_date_created }}</p>
+  <p>{{ post.user_owner.username }}</p>
+  {% if user == post.owner %}
+  <a
+    class="btn btn-sm btn-outline-info"
+    href="{% url 'update_post_page' post.id %}"
+    >Update</a
+  >
+  <a class="btn btn-sm btn-danger" href="{% url 'delete_post_page' post.id %}"
+    >Delete</a
+  >
+  {% else %}
+  <a class="btn btn-sm btn-outline-info" href="{% url 'home_page' %}">Home</a>
+  {% endif%}
+</div>
+{% endblock container %}

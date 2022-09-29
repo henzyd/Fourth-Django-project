@@ -1,0 +1,38 @@
+{% extends 'my_app/base.html' %}
+<!--  -->
+{% load crispy_forms_tags %}
+
+<!--  -->
+<!--  -->
+{% block container %}
+<div class="container col">
+  <div class="row">
+    <div class="col-6">
+      {% if messages %}
+      <!--  -->
+      {% for message in messages %}
+      <div
+        style="background-color: blue; border-radius: 20px"
+        class="col-4 m-auto"
+      >
+        <div class="p-4">{{ message }}</div>
+      </div>
+      {% endfor %}
+      <!--  -->
+      {% endif %}
+      <!--  -->
+      <!--  -->
+      {% for post in posts %}
+      <div class="name">
+        <h1>{{ post.user_title }}</h1>
+        <p>{{ post.user_date_created }}</p>
+        <p>{{ post.user_owner.username }}</p>
+        <a href="{% url 'plist_detail_page' post.id %}" class="btn bg-danger"
+          >Read More</a
+        >
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock container %}
